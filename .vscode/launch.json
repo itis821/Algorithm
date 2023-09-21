@@ -1,0 +1,175 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ15649",
+            "request": "launch",
+            "mainClass": "backtracking.BOJ15649",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ15650",
+            "request": "launch",
+            "mainClass": "backtracking.BOJ15650",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ15651",
+            "request": "launch",
+            "mainClass": "backtracking.BOJ15651",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ9663",
+            "request": "launch",
+            "mainClass": "backtracking.BOJ9663",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ1000",
+            "request": "launch",
+            "mainClass": "basic2.BOJ1000",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ10171",
+            "request": "launch",
+            "mainClass": "basic2.BOJ10171",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ10871",
+            "request": "launch",
+            "mainClass": "basic2.BOJ10871",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ2557",
+            "request": "launch",
+            "mainClass": "basic2.BOJ2557",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch hello",
+            "request": "launch",
+            "mainClass": "basic2.hello",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ1926",
+            "request": "launch",
+            "mainClass": "bfs.BOJ1926",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ2178",
+            "request": "launch",
+            "mainClass": "bfs.BOJ2178",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ2206",
+            "request": "launch",
+            "mainClass": "bfs.BOJ2206",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ4179",
+            "request": "launch",
+            "mainClass": "bfs.BOJ4179",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ7576",
+            "request": "launch",
+            "mainClass": "bfs.BOJ7576",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ9466",
+            "request": "launch",
+            "mainClass": "bfs.BOJ9466",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ11053",
+            "request": "launch",
+            "mainClass": "dp.BOJ11053",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ1463",
+            "request": "launch",
+            "mainClass": "dp.BOJ1463",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ1463DP",
+            "request": "launch",
+            "mainClass": "dp.BOJ1463DP",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ2579",
+            "request": "launch",
+            "mainClass": "dp.BOJ2579",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ17478",
+            "request": "launch",
+            "mainClass": "recursion.BOJ17478",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ1780",
+            "request": "launch",
+            "mainClass": "recursion.BOJ1780",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ14891",
+            "request": "launch",
+            "mainClass": "simulation.BOJ14891",
+            "projectName": "Algorithm_d4c3bf04"
+        },
+        {
+            "type": "java",
+            "name": "Launch BOJ15683",
+            "request": "launch",
+            "mainClass": "simulation.BOJ15683",
+            "projectName": "Algorithm_d4c3bf04"
+        }
+    ]
+}
