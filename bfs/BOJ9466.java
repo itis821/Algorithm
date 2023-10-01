@@ -7,58 +7,78 @@ public class BOJ9466 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
-        int T = Integer.parseInt(br.readLine()); // 테스트 케이스
+        StringTokenizer st;
+        Queue<Integer> q = new LinkedList<>();
+
+        int T = Integer.parseInt(br.readLine());
+        int N;
+        int[] fromTo;
+        int[] toFrom;
+        int num_team;
+
+        boolean[] isVisited;
+        boolean[] haveTeam;
 
         while (T > 0) {
-            int n = Integer.parseInt(br.readLine()); // 학생 수
-            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-            int[] arr = new int[n];
-            boolean[] isVisited = new boolean[n];
-            boolean[] haveTeam = new boolean[n];
 
-            for (int i = 0; i < n; i++) {
-                arr[i] = Integer.parseInt(st.nextToken()) - 1;
+            N = Integer.parseInt(br.readLine());
+            st = new StringTokenizer(br.readLine(), " ");
+            num_team = 0;
+
+            fromTo = new int[N + 1];
+            toFrom = new int[N + 1];
+            haveTeam = new boolean[N + 1];
+            isVisited = new boolean[N + 1];
+
+            for (int from = 1; from <= N; from++) {
+                int to = Integer.parseInt(st.nextToken());
+                fromTo[from] = to;
+                toFrom[to] = from;
             }
 
-            // n = 학생 수, arr[i]
-            // 2 <= n <= 100,000
-            // 방문했던 곳을 다시 방문하면 팀
-            // 다시 방문된 곳부터
-            // 근데 이게 왜 bfs임?
-            Queue<Integer> q = new LinkedList<>();
-            q.offer(0);
-            isVisited[0] = true;
+            // 한 놈씩 검사
+            for (int i = 1; i <= N; i++) {
 
-            while (q.isEmpty()) {
-                int current = q.poll(); // 현재
-                int next = arr[current]; // 다음 놈
-                // 범위 검사 (없음)
-
-                // 유효성 검사
-                if (haveTeam[next])
-                    continue; // 팀이 이미 있음
-                if (current == next) { // 혼자 팀
-                    haveTeam[current] = true;
+                if (isVisited[i] == true)
                     continue;
-                }
-                if (isVisited[next]) { // 팀이 없는데, 방문한 적 있음
-                    int i = next;
-                    haveTeam[current] = true;
-                    while (true) {
-                        haveTeam[i] = true;
-                        i = arr[i];
-                        if (i == current)
-                            break;
+
+                q.offer(i);
+                isVisited[i] = true;
+
+                while (!q.isEmpty()) {
+
+                    int curr = q.poll();
+                    int next = fromTo[curr];
+
+                    if (next == i) {
+                        while (true) {
+                            haveTeam[i] = true;
+                            toFrom[i] = true;
+                        }
+                        for (int j = 1; j <= N; j++) {
+                            if (isVisited[j]) {
+                                haveTeam[j] = true;
+                                num_team++;
+                            }
+                        }
+                        break;
                     }
+
+                    if (isVisited[next]) {
+                        break;
+                    } else {
+                        isVisited[next] = true;
+                        q.offer(next);
+                    }
+
                 }
 
-                // 중복검사
-
-                // 방문체크
             }
+            sb.append(N - num_team).append('\n');
+            T--;
         }
 
-        T--; // 테스트 케이스 끝
+        System.out.println(sb);
     }
 
 }
