@@ -1,7 +1,6 @@
 package sort;
 
 import java.io.*;
-import java.util.*;
 
 public class BOJ15688 {
     static final int MINUS = 1000000;
