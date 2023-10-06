@@ -9,8 +9,8 @@ class BOJ2193 {
 
         long[][] cnt = new long[N + 1][2];
 
-        cnt[1][0] = 0L;
-        cnt[1][1] = 1L;
+        cnt[1][0] = 0;
+        cnt[1][1] = 1;
 
         for (int i = 2; i < N + 1; i++) {
             cnt[i][0] = cnt[i - 1][0] + cnt[i - 1][1];
@@ -18,6 +18,5 @@ class BOJ2193 {
         }
 
         System.out.println(cnt[N][0] + cnt[N][1]);
-
     }
 }
