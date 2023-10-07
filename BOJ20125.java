@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 public class BOJ20125 {
     // 머리, 심장, 허리 ,좌우 팔 다리
