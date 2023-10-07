@@ -6,7 +6,7 @@ class BOJ21921 {
     static int[] bangmoon;
     static int N;
     static int cnt;
-    static long max;
+    static int max;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -44,7 +44,7 @@ class BOJ21921 {
             max += bangmoon[i];
         }
 
-        long tmp = max;
+        int tmp = max;
 
         while (end + 1 <= N) {
             tmp = tmp - bangmoon[start] + bangmoon[end + 1];
