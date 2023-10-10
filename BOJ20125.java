@@ -59,9 +59,6 @@ public class BOJ20125 {
         // 심장 위치
         System.out.println(heart[0] + " " + heart[1]);
 
-        int hr = heart[0];
-        int hc = heart[1];
-
         // 왼팔
         int tmp_r = heart[0];
         int tmp_c = heart[1]; // col --
