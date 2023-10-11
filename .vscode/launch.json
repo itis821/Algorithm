@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch BOJ18869",
+      "request": "launch",
+      "mainClass": "binarysearch.BOJ18869",
+      "projectName": "Algorithm_d4c3bf04"
+    },
+    {
+      "type": "java",
       "name": "Launch BOJ16401",
       "request": "launch",
       "mainClass": "binarysearch.BOJ16401",
