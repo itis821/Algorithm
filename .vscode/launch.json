@@ -6,6 +6,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch BOJ16967",
+      "request": "launch",
+      "mainClass": "random.BOJ16967",
+      "projectName": "Algorithm_d4c3bf04"
+    },
+    {
+      "type": "java",
+      "name": "Launch BOJ1806",
+      "request": "launch",
+      "mainClass": "twopointer.BOJ1806",
+      "projectName": "Algorithm_d4c3bf04"
+    },
+    {
+      "type": "java",
       "name": "Launch BOJ2230",
       "request": "launch",
       "mainClass": "twopointer.BOJ2230",

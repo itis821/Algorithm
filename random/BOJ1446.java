@@ -1,3 +1,5 @@
+package random;
+
 import java.io.*;
 import java.util.*;
 
