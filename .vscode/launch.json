@@ -6,6 +6,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch BOJ14503",
+      "request": "launch",
+      "mainClass": "simulation.BOJ14503",
+      "projectName": "Algorithm_d4c3bf04"
+    },
+    {
+      "type": "java",
+      "name": "Launch BOJ13414",
+      "request": "launch",
+      "mainClass": "hash.BOJ13414",
+      "projectName": "Algorithm_d4c3bf04"
+    },
+    {
+      "type": "java",
       "name": "Launch BOJ7785",
       "request": "launch",
       "mainClass": "hash.BOJ7785",
