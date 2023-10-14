@@ -41,7 +41,7 @@ public class BOJ16918 {
             } else {
                 bomb(time);
             }
-
+            print_map(time);
             time++;
         }
 
@@ -116,6 +116,20 @@ public class BOJ16918 {
             return true;
         } else {
             return false;
+        }
+    }
+
+    static void print_map(int time) {
+        System.out.println("PRINT MAP, time : " + time);
+        for (int i = 0; i < R; i++) {
+            for (int j = 0; j < C; j++) {
+                if (map[i][j] >= 0) {
+                    System.out.print("O ");
+                } else {
+                    System.out.print(". ");
+                }
+            }
+            System.out.println();
         }
     }
 }
