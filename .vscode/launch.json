@@ -6,6 +6,34 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch BOJ7490",
+      "request": "launch",
+      "mainClass": "backtracking.BOJ7490",
+      "projectName": "Algorithm_d4c3bf04"
+    },
+    {
+      "type": "java",
+      "name": "Launch BOJ1300",
+      "request": "launch",
+      "mainClass": "binarysearch.BOJ1300",
+      "projectName": "Algorithm_d4c3bf04"
+    },
+    {
+      "type": "java",
+      "name": "Launch BOJ2805",
+      "request": "launch",
+      "mainClass": "binarysearch.BOJ2805",
+      "projectName": "Algorithm_d4c3bf04"
+    },
+    {
+      "type": "java",
+      "name": "Launch BOJ7682",
+      "request": "launch",
+      "mainClass": "random.BOJ7682",
+      "projectName": "Algorithm_d4c3bf04"
+    },
+    {
+      "type": "java",
       "name": "Launch BOJ14499",
       "request": "launch",
       "mainClass": "simulation.BOJ14499",
