@@ -5,47 +5,52 @@ import java.util.*;
 
 public class BOJ15649 {
     // 1부터 N 까지 자연수 중에서 중복 없이 M 개를 고른 수열
-    public static int[] selected;
-    public static boolean[] isVisited;
+    static int[] selected;
+    static boolean[] isVisited;
 
-    public static int N;
-    public static int M;
+    static int n;
+    static int r;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
-        N = Integer.parseInt(st.nextToken());
-        M = Integer.parseInt(st.nextToken());
+        n = Integer.parseInt(st.nextToken());
+        r = Integer.parseInt(st.nextToken());
 
-        selected = new int[M];
-        isVisited = new boolean[N];
+        isVisited = new boolean[n];
+        selected = new int[r];
 
-        dfs(0);
+        comb(0, 0);
     }
 
-    public static void dfs(int depth) {
+    static void comb(int start, int depth) {
         // 종료 조건
-        if (depth == M) {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < M; i++) {
-                sb.append(selected[i]).append(" ");
-            }
-            System.out.println(sb.toString());
+        if (depth == r) {
+            print(r);
             return;
         }
 
-        for (int i = 0; i < N; i++) {
+        for (int i = start; i < r; i++) {
             // 유효성 검사
             if (isVisited[i])
                 continue;
 
             selected[depth] = i + 1;
+
             // 방문처리
             isVisited[i] = true;
-            dfs(depth + 1);
+            comb(start + 1, depth + 1);
             isVisited[i] = false;
         }
+    }
+
+    static void print(int r) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < r; i++) {
+            sb.append(selected[i]).append(" ");
+        }
+        System.out.println(sb.toString());
     }
 
 }
