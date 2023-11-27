@@ -4,56 +4,78 @@ import java.io.*;
 import java.util.*;
 
 class BOJ16987 {
-    // 계란으로 계란치기
-    // 11월 25일 22:04~
-
-    static boolean[] isBroken;
-    static int[][] eggs;
-    static int N;
+    static int max = 0;
 
     public static void main(String[] args) throws IOException {
-        // (내구도, 무게)
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        N = Integer.parseInt(br.readLine()); // 1<= N <=8
 
-        eggs = new int[N][2];
-        isBroken = new boolean[N];
-
-        for (int i = 0; i < N; i++) {
-            String input = br.readLine();
-            StringTokenizer st = new StringTokenizer(input, " ");
-            eggs[i][0] = Integer.parseInt(st.nextToken()); // 내구도
-            eggs[i][1] = Integer.parseInt(st.nextToken()); // 무게
-        }
+        // 1 input
+        int N = Integer.parseInt(br.readLine()); // 1<= N <= 8
 
         if (N == 1) {
             System.out.println(0);
             return;
         }
 
-        break_egg(0);
-        // N == 2
-        // 가장 왼쪽 계란 들기
-        // 오른쪽 계란 치기
-        // 1. 가장 왼쪽 계란 들기
-        // 2. 계란 꺠기
-        // 3. 오른쪽 계란 들기
+        // 2 ~ (2+N) input
+        int[] s = new int[N]; // 1 <= s <= 300
+        int[] w = new int[N]; // 1 <= w <= 300
+
+        for (int i = 0; i < N; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+            s[i] = Integer.parseInt(st.nextToken());
+            w[i] = Integer.parseInt(st.nextToken());
+        }
+
+        // logic
+        breakingEggs(0, N, s, w);
+
+        // output
+        System.out.println(max);
     }
 
-    static void break_egg(int curr) {
-        for (int i = 0; i < N; i++) {
-            if (i != curr && !isBroken[i]) {
-                eggs[curr][0] -= eggs[i][1];
-                eggs[i][0] -= eggs[curr][1];
-
-                if (eggs[curr][0] <= 0) {
-                    isBroken[curr] = true;
-                }
-
-                if (eggs[i][0] <= 0) {
-                    isBroken[i] = true;
+    static void breakingEggs(int curr, int N, int[] s, int[] w) {
+        if (curr == N) {
+            int cnt = 0;
+            for (int i = 0; i < N; i++) {
+                if (s[i] <= 0) {
+                    cnt++;
                 }
             }
+
+            max = Math.max(max, cnt);
+            return;
+        }
+
+        boolean breaking = false;
+
+        for (int pick = 0; pick < N; pick++) {
+
+            // 현재 계란이 깨진 경우 패스
+            if (s[curr] <= 0) {
+                breakingEggs(curr + 1, N, s, w);
+                continue;
+            }
+
+            // 현재 계란이 선택한 계란이면 다음 계란 선택
+            if (pick == curr)
+                continue;
+
+            // 선택한 계란이 꺠지면 다음 계란 선택
+            if (s[pick] <= 0)
+                continue;
+
+            // 계란 깨기
+            breaking = true;
+            s[curr] -= w[pick];
+            s[pick] -= w[curr];
+            breakingEggs(curr + 1, N, s, w);
+            s[pick] += w[curr];
+            s[curr] += w[pick];
+        }
+
+        if (!breaking) {
+            breakingEggs(curr + 1, N, s, w);
         }
     }
 }
