@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch BOJ15666",
+      "request": "launch",
+      "mainClass": "backtracking.BOJ15666",
+      "projectName": "Algorithm_d4c3bf04"
+    },
+    {
+      "type": "java",
       "name": "Launch BOJ15665",
       "request": "launch",
       "mainClass": "backtracking.BOJ15665",
