@@ -53,9 +53,7 @@ class BOJ13460 {
 
         // 10번 움직였거나, isEnd(결과가 나왔나), isSuccess(목표에 도달했나)
         if (depth == 10 || isEnd) {
-
             if (isSuccess) {
-                // System.out.println("SUCCESS DEPTH : " + depth);
                 ans = Math.min(depth, ans);
             }
 
@@ -66,7 +64,6 @@ class BOJ13460 {
         for (int d = 0; d < 4; d++) {
             int[] temp = Arrays.copyOf(point, 4);
             boolean[] result = tilt(map, d);
-            // printMap(map);
             backtracking(depth + 1, result[0], result[1]);
             point = Arrays.copyOf(temp, 4);
         }
@@ -83,8 +80,6 @@ class BOJ13460 {
         int ry = point[1];
         int bx = point[2];
         int by = point[3];
-        // isEnd 조건(파란 구슬 또는 빨간 구슬이 구멍에 빠짐)
-        // isSuccess 조건(빨간 구슬이 구멍에 빠짐 && !파란 구슬이 구멍에 빠짐)
 
         // 파란 구슬 굴리기
         while (map[bx + dx[d]][by + dy[d]] == '.') {
@@ -98,15 +93,7 @@ class BOJ13460 {
             return new boolean[] { isEnd, isSuccess };
         }
 
-        // 빨간 구슬
-
-        if (rx <= 0 || rx >= N - 1 || ry <= 0 || ry >= M - 1) {
-            System.out.println("--------------------");
-            System.out.println("rx : " + rx + ", ry : " + ry);
-            System.out.println("dx : " + dx[d] + ", dy : " + dy[d]);
-            System.out.println((rx + dx[d]) + ", " + (ry + dy[d]));
-            printMap(map);
-        }
+        // 빨간 구슬 굴리기
         while (map[rx + dx[d]][ry + dy[d]] == '.') {
             rx += dx[d];
             ry += dy[d];
@@ -153,22 +140,5 @@ class BOJ13460 {
         point[3] = by;
 
         return new boolean[] { isEnd, isSuccess };
-    }
-
-    static void printMap(char[][] myMap) {
-        System.out.println("--------------------");
-        for (int i = 0; i < myMap.length; i++) {
-            for (int j = 0; j < myMap[0].length; j++) {
-                if (i == point[0] && j == point[1]) {
-                    System.out.print('R');
-                } else if (i == point[2] && j == point[3]) {
-                    System.out.print('B');
-                } else {
-                    System.out.print(myMap[i][j]);
-                }
-
-            }
-            System.out.println();
-        }
     }
 }
