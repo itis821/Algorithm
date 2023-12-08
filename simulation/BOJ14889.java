@@ -3,90 +3,81 @@ package simulation;
 import java.io.*;
 import java.util.*;
 
-public class BOJ14889 {
-    // 차의 절대값
+class BOJ14889 {
     static int ans = Integer.MAX_VALUE;
-    static int N;
-    static int[][] info;
-    static boolean[] isTeam1;
+
+    static int[] teamA;
+    static int[] teamB;
+    static int[][] S;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int N = Integer.parseInt(br.readLine()); // 4<= N <= 20, 짝수
+        S = new int[N][N]; // 1<= S[i][j] <= 100, 정수
+        teamA = new int[N / 2];
+        teamB = new int[N / 2];
+
         StringTokenizer st;
-        N = Integer.parseInt(br.readLine()); // 4<= N <= 20
-
-        info = new int[N][N];
-        isTeam1 = new boolean[N];
-
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine(), " ");
             for (int j = 0; j < N; j++) {
-                info[i][j] = Integer.parseInt(st.nextToken()); // 1<= info <= 100
+                S[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
-        // combination을 통해 팀을 뽑음
-        // 팀의 능력치 합을 뺌
-        comb(0, 0);
-
-        // output
+        comb(teamA.length, 0, 0, N, teamA);
         System.out.println(ans);
     }
 
-    static void comb(int depth, int at) {
-        if (depth == N / 2) {
-            // int[] sum = calculate();
-            // ans = Math.min(ans, Math.abs(sum[0] - sum[1]));
-
-            System.out.println("============");
-            for (int i = 0; i < N; i++) {
-                System.out.print(isTeam1[i] + " ");
-            }
-            System.out.println();
-            for (int i = 0; i < N; i++) {
-                if (isTeam1[i]) {
-                    System.out.print(i + " ");
-                }
-            }
-            System.out.println();
-
-            for (int i = 0; i < N; i++) {
-                isTeam1[i] = false;
-            }
-
+    static void comb(int n, int depth, int at, int N, int[] result) {
+        // N명 중 n개 뽑기
+        if (depth == n) {
+            fillTeamB(N);
+            int powerA = getPower(teamA);
+            int powerB = getPower(teamB);
+            ans = Math.min(ans, Math.abs(powerA - powerB));
             return;
         }
 
         for (int i = at; i < N; i++) {
-            isTeam1[i] = true;
-            comb(depth + 1, i + 1);
-            isTeam1[i] = false;
+            result[depth] = i;
+            comb(n, depth + 1, i + 1, N, result);
         }
     }
 
-    // static int[] calculate() {
-    // // team1 의 조합 찾기
-    // int[] semiTeam1 = new int[2];
-    // int[] semiTeam2 = new int[2];
+    static int getPower(int[] team) {
+        int[] power = new int[1];
+        int[] pair = new int[2];
+        comb2(team, power, 0, 0, pair);
+        return power[0];
+    }
 
-    // combTeam(0, 0, semiTeam1); // team1 중 2명 고르기
-    // combTeam(0, 0, semiTeam2); // team1 중 2명 고르기
+    static void comb2(int[] team, int[] power, int depth, int at, int[] pair) {
+        if (depth == 2) {
+            power[0] += S[pair[0]][pair[1]];
+            power[0] += S[pair[1]][pair[0]];
+            return;
+        }
 
-    // return new int[] { team1Sum, team2Sum };
-    // }
+        for (int i = at; i < team.length; i++) {
+            pair[depth] = team[i];
+            comb2(team, power, depth + 1, i + 1, pair);
+        }
+    }
 
-    // static void combTeam(int depth, int at, int[] semiTeam) {
-    // if (depth == 2) {
+    static void fillTeamB(int N) {
+        boolean[] isTeamA = new boolean[N];
 
-    // team1Sum += info[semiTeam[0]][semiTeam[1]];
-    // team1Sum += info[semiTeam[1]][semiTeam[0]];
+        for (int i = 0; i < teamA.length; i++) {
+            isTeamA[teamA[i]] = true;
+        }
 
-    // return;
-    // }
-
-    // for (int i = at; i < teamArr.length; i++) {
-    // semiTeam[depth] = teamArr[i];
-    // combTeam(depth + 1, i + 1, semiTeam);
-    // }
-    // }
+        int bidx = 0;
+        for (int i = 0; i < N; i++) {
+            if (!isTeamA[i]) {
+                teamB[bidx++] = i;
+            }
+        }
+    }
 }
