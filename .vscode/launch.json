@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch BOJ9251",
+      "request": "launch",
+      "mainClass": "dp.BOJ9251",
+      "projectName": "Algorithm_d4c3bf04"
+    },
+    {
+      "type": "java",
       "name": "Launch BOJ5582",
       "request": "launch",
       "mainClass": "dp.BOJ5582",
