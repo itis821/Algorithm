@@ -6,6 +6,41 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch BOJ1992",
+      "request": "launch",
+      "mainClass": "recursion.BOJ1992",
+      "projectName": "Algorithm_d4c3bf04"
+    },
+    {
+      "type": "java",
+      "name": "Launch sw2",
+      "request": "launch",
+      "mainClass": "random.sw2",
+      "projectName": "Algorithm_d4c3bf04"
+    },
+    {
+      "type": "java",
+      "name": "Launch sw3",
+      "request": "launch",
+      "mainClass": "random.sw3",
+      "projectName": "Algorithm_d4c3bf04"
+    },
+    {
+      "type": "java",
+      "name": "Launch s1",
+      "request": "launch",
+      "mainClass": "random.s1",
+      "projectName": "Algorithm_d4c3bf04"
+    },
+    {
+      "type": "java",
+      "name": "Launch BOJ9084",
+      "request": "launch",
+      "mainClass": "dp.BOJ9084",
+      "projectName": "Algorithm_d4c3bf04"
+    },
+    {
+      "type": "java",
       "name": "Launch BOJ1699",
       "request": "launch",
       "mainClass": "dp.BOJ1699",
